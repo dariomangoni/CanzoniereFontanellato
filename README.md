@@ -40,15 +40,15 @@ La canzone dovrà essere formattata con i comandi appositi.
 
 ```TeX
 \beginsong{MySong}
-	\beginverse
-		This is a ve\[Re]rse
-	\endverse
-	\beginchorus
-		This is the ch\[Sol]orus
-	\endchorus
-	\beginverse
-		This is an\[La]other ve\[Re]rse
-	\endverse
+  \beginverse
+    This is a ve\[Re]rse
+  \endverse
+  \beginchorus
+    This is the ch\[Sol]orus
+  \endchorus
+  \beginverse
+    This is an\[La]other ve\[Re]rse
+  \endverse
 \endsong
 ```
 

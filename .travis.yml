@@ -1,41 +1,33 @@
 language: generic
-
-# Dependency of the minted package
 before_install:
- - sudo apt-get install python-pygments
-install:
- - source ./texlive/texlive_install.sh
- - mkdir -p /tmp/emerald
- - unzip -u ./resources/emerald.zip -d /tmp/
- - cp -r -f /tmp/emerald/fonts/ /tmp/texlive/texmf-local/
- - cp -r -f /tmp/emerald/tex/ /tmp/texlive/texmf-local/
- - mktexlsr
- - updmap-sys --force --enable Map=emerald.map
+  - sudo apt-get install python-pygments
+  install:
+    - source ./texlive/texlive_install.sh
+    - mkdir -p /tmp/emerald
+    - unzip -u ./resources/emerald.zip -d /tmp/
+    - cp -r -f /tmp/emerald/fonts/ /tmp/texlive/texmf-local/
+    - cp -r -f /tmp/emerald/tex/ /tmp/texlive/texmf-local/
+    - mktexlsr
+    - updmap-sys --force --enable Map=emerald.map
 cache:
   directories:
-    - /tmp/texlive
-    - $HOME/.texlive
-# Change working directory so including files will work
+    - "/tmp/texlive"
+    - "$HOME/.texlive"
 before_script:
   - cd $TRAVIS_BUILD_DIR/
 script:
-# texliveonfly will download packages automatically, running pdflatex by default. Change compiler with e.g. --compiler=lualatex
-- texliveonfly -shell-escape ./CanzoniereFontanellato.tex
-- texlua ./tools/songidx.lua CanzoniereFontanellatoLiturgicoIndex.sxd CanzoniereFontanellatoLiturgicoIndex.sbx
-- texlua ./tools/songidx.lua CanzoniereFontanellatoScoutIndex.sxd CanzoniereFontanellatoScoutIndex.sbx
-- texlua ./tools/songidx.lua CanzoniereFontanellatoVarieIndex.sxd CanzoniereFontanellatoVarieIndex.sbx
-# Compile twice to fix possible references
-- texliveonfly -shell-escape ./CanzoniereFontanellato.tex
-
+  - texliveonfly -shell-escape ./CanzoniereFontanellato.tex
+  - texlua ./tools/songidx.lua CanzoniereFontanellatoLiturgicoIndex.sxd CanzoniereFontanellatoLiturgicoIndex.sbx
+  - texlua ./tools/songidx.lua CanzoniereFontanellatoScoutIndex.sxd CanzoniereFontanellatoScoutIndex.sbx
+  - texlua ./tools/songidx.lua CanzoniereFontanellatoVarieIndex.sxd CanzoniereFontanellatoVarieIndex.sbx
+  - texliveonfly -shell-escape ./CanzoniereFontanellato.tex
 deploy:
   provider: releases
   api_key:
-    secure: "BYVIaIiFGgQg/6hZXwOdM8YF19rsCXtFwh3944d57wX3mso3keBtf9sbe+L/FQJsPf6D3pmY75NG7wBQG+0rdMASH7PFodmxGeWFSUHxa9I7EpmEjSDIunhGetHMigQrTPTkAJKQq3L4qvccGQNXc2sZouPS4U4m+4hJKSeI3ogRGpVWbHfvHebB4emtMMHTLcgUKCBOz07ARH/LVAyfokjHxj5GquUnn2jK//EPjxOdVxKYyZWopEGIRK3QHSRz4L98kkV/qgxIRzvImdU9S2oXIObRJ095/ci1SnfPuavo4BvdJNfcl6rs9i1t9/vJmcVYJflKp3mTrbzqpFipZEHINDOcJ97y1z0qQqVVBQZa9YPHJeKnvz5p0UKotNu5JyNKnfTDIU/ggIQVwVB17Ezxs4Fh56Azf93PalcOllM1IfNCO64rvaqRuqCN/cPs7Ulw2V1CgoddsnXNKwOxAzh00rN6/v+ZkxtfMRahHKajyTnn5n2InooXoK7Jlhg7s721IPqQiO6WzGAYjLOJ6eK/XgkSi/csP5rQDN9cc8mls+Z+Cyn6NUbF73EGjOySNfPH6+NegVdK/rZNbAaprd+vt0/DSfyExCJRQV+ERukK6z3GHlbyE5kXBffsfJDk9W6teGDjS4RTor4e5mZvXSotkSvbzFvMvZ7zGx+QVj0="
-  file:
-    - ./CanzoniereFontanellato.pdf
+    secure: nKcf8kuuPZHfJq98AB577SDkbO70cUmn3Hk+ENILuGNKbPvx13TTsJjeyCv9nB2Xqil1yI2goWl4WkeKodreSc39CASEOmiT2oDK5r4wFXTS2tXYKFT7SPxJbmzh6pYDh0U7WAsxYDZBeaQn186/sG4fufv3GzQKzx1q1HetYEw/ylJC+yg3cSvhJ/asFw1odD4KWpSIJlhdQvh76cDwq7WjLAKoo0wpemn+j4kXPRrgJJty2YfZpSb3Z8VA2QWO7gpLb6V4WzXShsLneRtRD7fyRt2HsxGYU8qg15YRIkcKm531om2Rp2J//8Z+9ocMSQNi6R5meVi6v/xXzr5jOGJyxwN+DUgKb3Y40rOi16zSe3FQ5io8X+FqH8dxVEXm8NebDg+sdSh4u/5wGn6h8AdnWWS0HGKnSXN8mfOxxoV8V8ktHImKtHYS9cRAUQYcOQL6iX2sZ8vBp0P/VVs/oC3+4P+jAvvFV77evZQD30261cOgSHFAKAwSQ+Q1mlVDcCO7tDg+f1VIJoiX4oYVzSq5FM1ROWEg0W7YqePwRHXt+4Uof+XiiMYOEJKwhejpHAA9YwCFirVZCEY95atpmNi+PNDUTwkuoL4spLNXrH+SRxysoWGQrCzei4+z3Q5E/AoFdVM5q3uOuzIMZTAYLnrcC4crk6msqJTHre3AkHM=
+  file: "./CanzoniereFontanellato.pdf"
   skip_cleanup: true
-  overwrite: true
+  overwrite: yes
   draft: true
   # on:
   #   repo: dariomangoni/CanzoniereFontanellato
-  #   tags: true
