@@ -38,6 +38,9 @@
     \interlinepenalty\@M   #1\par\nobreak
     \vskip 40\p@
   }}
+
+\@ifundefined{songlink}{\newcommand{\songlink}[2]{\hyperlink{#1}{#2}}}{}
+
 \makeatother
 
 \titleprefixword{Il}
@@ -53,7 +56,7 @@
 \solfedge % indica la presenza di note DO, RE, ... invece di C, D, ... ma attenzione, perhcè le rilevi dovrebbero essere tutte MAIUSCOLE
 %\renewcommand{\sharpsymbol}{\ensuremath{^\sharp}}
 
-\newcommand{\songlink}[2]{\hyperlink{#1}{#2}}
+
 \newindex{CanzoniereFontanellatoLiturgicoIndex}{CanzoniereFontanellatoLiturgicoIndex}
 \newindex{CanzoniereFontanellatoScoutIndex}{CanzoniereFontanellatoScoutIndex}
 \newindex{CanzoniereFontanellatoVarieIndex}{CanzoniereFontanellatoVarieIndex}

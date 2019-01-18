@@ -1,0 +1,28 @@
+language: generic
+
+# Dependency of the minted package
+before_install:
+ - sudo apt-get install python-pygments
+install:
+ - source ./texlive/texlive_install.sh
+ - mkdir -p /tmp/emerald
+ - unzip -u ./resources/emerald.zip -d /tmp/
+ - cp -r -f /tmp/emerald/fonts/ /tmp/texlive/texmf-local/
+ - cp -r -f /tmp/emerald/tex/ /tmp/texlive/texmf-local/
+ - mktexlsr
+ - updmap-sys --force --enable Map=emerald.map
+cache:
+  directories:
+    - /tmp/texlive
+    - $HOME/.texlive
+# Change working directory so including files will work
+before_script:
+  - cd $TRAVIS_BUILD_DIR/
+script:
+# texliveonfly will download packages automatically, running pdflatex by default. Change compiler with e.g. --compiler=lualatex
+- texliveonfly -shell-escape ./CanzoniereFontanellato.tex
+- texlua ./tools/songidx.lua CanzoniereFontanellatoLiturgicoIndex.sxd CanzoniereFontanellatoLiturgicoIndex.sbx
+- texlua ./tools/songidx.lua CanzoniereFontanellatoScoutIndex.sxd CanzoniereFontanellatoScoutIndex.sbx
+- texlua ./tools/songidx.lua CanzoniereFontanellatoVarieIndex.sxd CanzoniereFontanellatoVarieIndex.sbx
+# Compile twice to fix possible references
+- texliveonfly -shell-escape ./CanzoniereFontanellato.tex

@@ -1,5 +1,5 @@
 
-# Canzoniere Fontanellato
+# Canzoniere Fontanellato [![Build Status](https://travis-ci.com/dariomangoni/CanzoniereFontanellato.svg?branch=master)](https://travis-ci.com/dariomangoni/CanzoniereFontanellato)
 
 Il repository contiene i file sorgente per la generazioni del canzoniere del gruppo AGESCI Fontanellato 1 con LaTeX + [songs](http://songs.sourceforge.net/).  
 
@@ -36,7 +36,7 @@ I diesis sono sostituiti dal cancelletto: # e.g. `\[Fa#]`
 Per una più dettagliata descrizione fare riferimento al manuale del pacchetto [songs](http://songs.sourceforge.net/).
 
 
-La canzone dovrà sempre essere compresa tra
+La canzone dovrà essere formattata con i comandi appositi.
 
 ```TeX
 \beginsong{MySong}
