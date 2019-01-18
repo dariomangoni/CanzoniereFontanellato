@@ -1,7 +1,10 @@
 
 # Canzoniere Fontanellato [![Build Status](https://travis-ci.com/dariomangoni/CanzoniereFontanellato.svg?branch=master)](https://travis-ci.com/dariomangoni/CanzoniereFontanellato)
 
-Il repository contiene i file sorgente per la generazioni del canzoniere del gruppo AGESCI Fontanellato 1 con LaTeX + [songs](http://songs.sourceforge.net/).  
+
+Scarica il nostro canzoniere: [CanzoniereFontanellato](https://github.com/dariomangoni/CanzoniereFontanellato/blob/master/CanzoniereFontanellato.pdf)
+
+Il repository contiene inoltre i file sorgente per la generazioni del canzoniere del gruppo AGESCI Fontanellato 1 con LaTeX + [songs](http://songs.sourceforge.net/) in locale.  
 
 Il canzoniere è diviso in tre sezioni:
 * Canzoniere Liturgico
@@ -14,7 +17,7 @@ per ciascuna di queste sezioni vi è un file *.tex* apposito, che riporta la lis
 
 Supponiamo di voler aggiungere la canzone dal titolo *MySong* al *CanzoniereLiturgico*.  
 Sarà necessario:
-* creare un file *.tex* nella cartella [**songs**](./songs) con il nome della canzone  
+* creare un file *.tex* nella cartella [**songs**](https://github.com/dariomangoni/CanzoniereFontanellato/tree/master/songs) con il nome della canzone  
 es. *MySong.tex*  
 con l'accortezza di evitare caratteri accentati, punteggiature, apostrofi e altri simboli che potrebbero compromettere l'individuazione del file
 
@@ -55,18 +58,22 @@ La canzone dovrà essere formattata con i comandi appositi.
 -----------------
 ## Installazione Font (nel caso si volesse usare il font Emerald)
 
-For TexLive users refer to the site https://www.tug.org/fonts/fontinstall.html. Here a summary:
-1) find your local **texmf** folder prompting this in the command prompt:
+Per utenti TexLive fare riferimoento al sito https://www.tug.org/fonts/fontinstall.html, del quale si riporta un estratto:
+1. individuare la cartella **texmf-local** con il seguente comando:
 	```winbatch
 	kpsewhich --var-value TEXMFLOCAL
 	```
-2) copy the the **fonts** and **tex** folders of the font into your **texmf** folder
-3) run from command prompt:
+2. estrarre l'archivio [emerald.zip](https://github.com/dariomangoni/CanzoniereFontanellato/tree/master/resources/emerald.zip)
+3. copiare le cartelle **fonts** e **tex** così ottenute nella cartella **texmf-local** dell'installazione TexLive
+4. eseguire da command prompt:
 	```winbatch
 	mktexlsr
 	updmap-sys --force --enable Map=emerald.map
 	```
-4) done
+
 
 ## Compilazione
 Nella cartella **tools** il batch file *CompileCanzoniereFontanellato.cmd* riporta tutte le operazioni da eseguirsi per compilare il codice LaTeX con relativo indice. La generazione di quest'ultimo si basa sullo script Lua *songidx.lua* reperibile nel codice sorgente dello stesso pacchetto [songs](http://songs.sourceforge.net/). Per il suo utilizzo è richiesto *texlua*.
+
+## Compilazione automatica con Travis CI
+Il file *CanzoniereFontanellato.pdf* è mantenuto aggiornato da Travis CI ad ogni aggiornamento del repository.
