@@ -240,3 +240,7 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+*.sbx
+*.sxd
+desktop.ini
+*.sxc

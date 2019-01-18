@@ -1,0 +1,97 @@
+%\documentclass{article}
+\documentclass[a4paper,11pt,titlepage,openright,twoside]{book}
+\usepackage[headheight=14pt]{geometry}
+\geometry{a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,heightrounded}
+\usepackage[chorded]{songs}
+%\usepackage[lyric]{songs}
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[T1]{fontenc}
+\usepackage{emptypage} %suppresses page numbers and headings from appearing on empty pages
+\usepackage[italian]{babel}
+\usepackage{microtype}
+\usepackage{fancyhdr} % header and footers constructor facilities
+\usepackage{setspace} % line-spacing settings
+\usepackage{emerald} % OPTIONAL: used for titles
+\usepackage[bookmarks, hidelinks]{hyperref}
+
+
+\noversenumbers
+\renewcommand{\songchapter}{\chapter}
+\renewcommand{\idxtitlefont}{\sffamily\slshape}
+\renewcommand{\lyricfont}{\sffamily\normalsize}
+\renewcommand{\stitlefont}{\ECFAugie\Large}
+\renewcommand{\printchord}[1]{\sffamily\bfseries\scriptsize#1} % chords appearance
+\versesep=10pt plus 2pt minus 2pt % space between lyrics and choruses
+\baselineadj=-8pt plus 2pt minus 2pt % space between lyric lines
+
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{40\p@}%
+  {\parindent \z@ \centering \ECFAugie\Huge
+    \interlinepenalty\@M  #1\par\nobreak
+    \vskip 40\p@
+  }}
+  
+\def\@makeschapterhead#1{%
+  \vspace*{40\p@}%
+  {\parindent \z@ \centering \ECFAugie\Huge
+    \interlinepenalty\@M   #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\titleprefixword{Il}
+\titleprefixword{Lo}
+\titleprefixword{La}
+\titleprefixword{Il}
+\titleprefixword{Gli}
+\titleprefixword{Le}
+\titleprefixword{Un}
+\titleprefixword{Uno}
+\titleprefixword{Una}
+\prefersharps % preferisce i diesis ai bemolle
+\solfedge % indica la presenza di note DO, RE, ... invece di C, D, ... ma attenzione, perhcè le rilevi dovrebbero essere tutte MAIUSCOLE
+%\renewcommand{\sharpsymbol}{\ensuremath{^\sharp}}
+
+\newcommand{\songlink}[2]{\hyperlink{#1}{#2}}
+\newindex{CanzoniereFontanellatoLiturgicoIndex}{CanzoniereFontanellatoLiturgicoIndex}
+\newindex{CanzoniereFontanellatoScoutIndex}{CanzoniereFontanellatoScoutIndex}
+\newindex{CanzoniereFontanellatoVarieIndex}{CanzoniereFontanellatoVarieIndex}
+
+\begin{document}
+	
+%\showindex[2]{Indice}{indice}
+%\showindex[2]{Indice completo}{indice}
+
+%\title{Canzoniere Fontanellato}
+\singlespacing
+	
+
+\pagestyle{fancy}
+	\fancyhf{}
+	\fancyhead[RO,LE]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+
+\songchapter{Canzoniere Liturgico}
+\begin{songs}{CanzoniereFontanellatoLiturgicoIndex}	
+\input{CanzoniereLiturgico}
+\end{songs}
+
+\songchapter{Canzoniere Scout}
+\begin{songs}{CanzoniereFontanellatoScoutIndex}
+\input{CanzoniereScout}
+\end{songs}
+
+\songchapter{Canzoniere Varie}
+\begin{songs}{CanzoniereFontanellatoVarieIndex}
+\input{CanzoniereVarie}
+\end{songs}
+
+\showindex[2]{Indice Liturgico}{CanzoniereFontanellatoLiturgicoIndex}
+\showindex[2]{Indice Scout\&Folk}{CanzoniereFontanellatoScoutIndex}
+\showindex[2]{Indice Varie}{CanzoniereFontanellatoVarieIndex}
+
+
+
+\end{document}
