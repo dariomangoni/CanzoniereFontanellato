@@ -26,3 +26,16 @@ script:
 - texlua ./tools/songidx.lua CanzoniereFontanellatoVarieIndex.sxd CanzoniereFontanellatoVarieIndex.sbx
 # Compile twice to fix possible references
 - texliveonfly -shell-escape ./CanzoniereFontanellato.tex
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "BYVIaIiFGgQg/6hZXwOdM8YF19rsCXtFwh3944d57wX3mso3keBtf9sbe+L/FQJsPf6D3pmY75NG7wBQG+0rdMASH7PFodmxGeWFSUHxa9I7EpmEjSDIunhGetHMigQrTPTkAJKQq3L4qvccGQNXc2sZouPS4U4m+4hJKSeI3ogRGpVWbHfvHebB4emtMMHTLcgUKCBOz07ARH/LVAyfokjHxj5GquUnn2jK//EPjxOdVxKYyZWopEGIRK3QHSRz4L98kkV/qgxIRzvImdU9S2oXIObRJ095/ci1SnfPuavo4BvdJNfcl6rs9i1t9/vJmcVYJflKp3mTrbzqpFipZEHINDOcJ97y1z0qQqVVBQZa9YPHJeKnvz5p0UKotNu5JyNKnfTDIU/ggIQVwVB17Ezxs4Fh56Azf93PalcOllM1IfNCO64rvaqRuqCN/cPs7Ulw2V1CgoddsnXNKwOxAzh00rN6/v+ZkxtfMRahHKajyTnn5n2InooXoK7Jlhg7s721IPqQiO6WzGAYjLOJ6eK/XgkSi/csP5rQDN9cc8mls+Z+Cyn6NUbF73EGjOySNfPH6+NegVdK/rZNbAaprd+vt0/DSfyExCJRQV+ERukK6z3GHlbyE5kXBffsfJDk9W6teGDjS4RTor4e5mZvXSotkSvbzFvMvZ7zGx+QVj0="
+  file:
+    - ./CanzoniereFontanellato.pdf
+  skip_cleanup: true
+  overwrite: true
+  draft: true
+  # on:
+  #   repo: dariomangoni/CanzoniereFontanellato
+  #   tags: true
