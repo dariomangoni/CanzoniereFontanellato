@@ -1,14 +1,14 @@
 language: generic
 before_install:
-  - sudo apt-get install python-pygments
-  install:
-    - source ./texlive/texlive_install.sh
-    - mkdir -p /tmp/emerald
-    - unzip -u ./resources/emerald.zip -d /tmp/
-    - cp -r -f /tmp/emerald/fonts/ /tmp/texlive/texmf-local/
-    - cp -r -f /tmp/emerald/tex/ /tmp/texlive/texmf-local/
-    - mktexlsr
-    - updmap-sys --force --enable Map=emerald.map
+- sudo apt-get install python-pygments
+install:
+  - source ./texlive/texlive_install.sh
+  - mkdir -p /tmp/emerald
+  - unzip -u ./resources/emerald.zip -d /tmp/
+  - cp -r -f /tmp/emerald/fonts/ /tmp/texlive/texmf-local/
+  - cp -r -f /tmp/emerald/tex/ /tmp/texlive/texmf-local/
+  - mktexlsr
+  - updmap-sys --force --enable Map=emerald.map
 cache:
   directories:
     - "/tmp/texlive"
