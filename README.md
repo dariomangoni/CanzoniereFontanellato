@@ -1,5 +1,5 @@
 
-# Canzoniere Fontanellato [![Build Status](https://travis-ci.com/dariomangoni/CanzoniereFontanellato.svg?branch=master)](https://travis-ci.com/dariomangoni/CanzoniereFontanellato)
+# Canzoniere Fontanellato [![Build Status](https://travis-ci.org/dariomangoni/CanzoniereFontanellato.svg?branch=master)](https://travis-ci.org/dariomangoni/CanzoniereFontanellato)
 
 
 Scarica il nostro canzoniere: [CanzoniereFontanellato](https://github.com/dariomangoni/CanzoniereFontanellato/blob/master/CanzoniereFontanellato.pdf)
