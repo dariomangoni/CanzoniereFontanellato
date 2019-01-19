@@ -30,7 +30,7 @@ deploy:
   provider: releases
   api_key:
     secure: nKcf8kuuPZHfJq98AB577SDkbO70cUmn3Hk+ENILuGNKbPvx13TTsJjeyCv9nB2Xqil1yI2goWl4WkeKodreSc39CASEOmiT2oDK5r4wFXTS2tXYKFT7SPxJbmzh6pYDh0U7WAsxYDZBeaQn186/sG4fufv3GzQKzx1q1HetYEw/ylJC+yg3cSvhJ/asFw1odD4KWpSIJlhdQvh76cDwq7WjLAKoo0wpemn+j4kXPRrgJJty2YfZpSb3Z8VA2QWO7gpLb6V4WzXShsLneRtRD7fyRt2HsxGYU8qg15YRIkcKm531om2Rp2J//8Z+9ocMSQNi6R5meVi6v/xXzr5jOGJyxwN+DUgKb3Y40rOi16zSe3FQ5io8X+FqH8dxVEXm8NebDg+sdSh4u/5wGn6h8AdnWWS0HGKnSXN8mfOxxoV8V8ktHImKtHYS9cRAUQYcOQL6iX2sZ8vBp0P/VVs/oC3+4P+jAvvFV77evZQD30261cOgSHFAKAwSQ+Q1mlVDcCO7tDg+f1VIJoiX4oYVzSq5FM1ROWEg0W7YqePwRHXt+4Uof+XiiMYOEJKwhejpHAA9YwCFirVZCEY95atpmNi+PNDUTwkuoL4spLNXrH+SRxysoWGQrCzei4+z3Q5E/AoFdVM5q3uOuzIMZTAYLnrcC4crk6msqJTHre3AkHM=
-  file: "./CanzoniereFontanellato.pdf"
+  file: ./CanzoniereFontanellato.pdf
   skip_cleanup: true
   overwrite: yes
   on:

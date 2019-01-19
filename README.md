@@ -2,7 +2,7 @@
 # Canzoniere Fontanellato [![Build Status](https://travis-ci.org/dariomangoni/CanzoniereFontanellato.svg?branch=master)](https://travis-ci.org/dariomangoni/CanzoniereFontanellato)
 
 
-Scarica il nostro canzoniere: [CanzoniereFontanellato](https://github.com/dariomangoni/CanzoniereFontanellato/blob/master/CanzoniereFontanellato.pdf)
+Scarica il nostro canzoniere: [CanzoniereFontanellato](https://github.com/dariomangoni/CanzoniereFontanellato/releases/latest)
 
 Il repository contiene inoltre i file sorgente per la generazioni del canzoniere del gruppo AGESCI Fontanellato 1 con LaTeX + [songs](http://songs.sourceforge.net/) in locale.  
 
@@ -76,4 +76,4 @@ Per utenti TexLive fare riferimoento al sito https://www.tug.org/fonts/fontinsta
 Nella cartella **tools** il batch file *CompileCanzoniereFontanellato.cmd* riporta tutte le operazioni da eseguirsi per compilare il codice LaTeX con relativo indice. La generazione di quest'ultimo si basa sullo script Lua *songidx.lua* reperibile nel codice sorgente dello stesso pacchetto [songs](http://songs.sourceforge.net/). Per il suo utilizzo è richiesto *texlua*.
 
 ## Compilazione automatica con Travis CI
-Il file *CanzoniereFontanellato.pdf* è mantenuto aggiornato da Travis CI ad ogni aggiornamento del repository.
+Il file [CanzoniereFontanellato](https://github.com/dariomangoni/CanzoniereFontanellato/releases/latest) è mantenuto costantemente aggiornato da Travis CI ad ogni push del repository.
