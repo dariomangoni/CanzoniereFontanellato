@@ -1,4 +1,3 @@
-cd ..
 pdflatex -synctex=1 -interaction=nonstopmode CanzoniereFontanellato.tex
 texlua tools/songidx.lua CanzoniereFontanellatoLiturgicoIndex.sxd CanzoniereFontanellatoLiturgicoIndex.sbx
 texlua tools/songidx.lua CanzoniereFontanellatoScoutIndex.sxd CanzoniereFontanellatoScoutIndex.sbx
