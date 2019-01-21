@@ -32,7 +32,6 @@ tlmgr install babel-italian
 
 # Common fonts with hard to debug errors if not found
 tlmgr install collection-fontsrecommended
-tlmgr install ec
 
 # In the case you have to install packages manually, you can use an index of packages like
 # http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/archive/

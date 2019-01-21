@@ -2,36 +2,35 @@ language: generic
 before_install:
 - sudo apt-get install python-pygments
 install:
-  - source ./texlive/texlive_install.sh
-  - mkdir -p /tmp/emerald
-  - unzip -u ./resources/emerald.zip -d /tmp/
-  - cp -r -f /tmp/emerald/fonts/ /tmp/texlive/texmf-local/
-  - cp -r -f /tmp/emerald/tex/ /tmp/texlive/texmf-local/
-  - mktexlsr
-  - updmap-sys --force --enable Map=emerald.map
+- source ./texlive/texlive_install.sh
+- mkdir -p /tmp/emerald
+- unzip -u ./resources/emerald.zip -d /tmp/
+- cp -r -f /tmp/emerald/fonts/ /tmp/texlive/texmf-local/
+- cp -r -f /tmp/emerald/tex/ /tmp/texlive/texmf-local/
+- mktexlsr
+- updmap-sys --force --enable Map=emerald.map
 cache:
   directories:
-    - "/tmp/texlive"
-    - "$HOME/.texlive"
+  - "/tmp/texlive"
+  - "$HOME/.texlive"
 before_script:
-  - cd $TRAVIS_BUILD_DIR/
+- cd $TRAVIS_BUILD_DIR/
 script:
-  - texliveonfly -shell-escape ./CanzoniereFontanellato.tex
-  - texlua ./tools/songidx.lua CanzoniereFontanellatoLiturgicoIndex.sxd CanzoniereFontanellatoLiturgicoIndex.sbx
-  - texlua ./tools/songidx.lua CanzoniereFontanellatoScoutIndex.sxd CanzoniereFontanellatoScoutIndex.sbx
-  - texlua ./tools/songidx.lua CanzoniereFontanellatoVarieIndex.sxd CanzoniereFontanellatoVarieIndex.sbx
-  - texliveonfly -shell-escape ./CanzoniereFontanellato.tex
+- texliveonfly -shell-escape ./CanzoniereFontanellato.tex
+- texlua ./tools/songidx.lua CanzoniereFontanellatoLiturgicoIndex.sxd CanzoniereFontanellatoLiturgicoIndex.sbx
+- texlua ./tools/songidx.lua CanzoniereFontanellatoScoutIndex.sxd CanzoniereFontanellatoScoutIndex.sbx
+- texlua ./tools/songidx.lua CanzoniereFontanellatoVarieIndex.sxd CanzoniereFontanellatoVarieIndex.sbx
+- texliveonfly -shell-escape ./CanzoniereFontanellato.tex
 before_deploy:
-    - git config --local user.name "Dario Mangoni"
-    - git config --local user.email "dariomangoni@gmail.com"
-    - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-    - git tag $TRAVIS_TAG
+- git config --local user.name "Dario Mangoni"
+- git config --local user.email "dariomangoni@gmail.com"
+- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+- git tag $TRAVIS_TAG
 deploy:
   provider: releases
   api_key:
-    secure: nKcf8kuuPZHfJq98AB577SDkbO70cUmn3Hk+ENILuGNKbPvx13TTsJjeyCv9nB2Xqil1yI2goWl4WkeKodreSc39CASEOmiT2oDK5r4wFXTS2tXYKFT7SPxJbmzh6pYDh0U7WAsxYDZBeaQn186/sG4fufv3GzQKzx1q1HetYEw/ylJC+yg3cSvhJ/asFw1odD4KWpSIJlhdQvh76cDwq7WjLAKoo0wpemn+j4kXPRrgJJty2YfZpSb3Z8VA2QWO7gpLb6V4WzXShsLneRtRD7fyRt2HsxGYU8qg15YRIkcKm531om2Rp2J//8Z+9ocMSQNi6R5meVi6v/xXzr5jOGJyxwN+DUgKb3Y40rOi16zSe3FQ5io8X+FqH8dxVEXm8NebDg+sdSh4u/5wGn6h8AdnWWS0HGKnSXN8mfOxxoV8V8ktHImKtHYS9cRAUQYcOQL6iX2sZ8vBp0P/VVs/oC3+4P+jAvvFV77evZQD30261cOgSHFAKAwSQ+Q1mlVDcCO7tDg+f1VIJoiX4oYVzSq5FM1ROWEg0W7YqePwRHXt+4Uof+XiiMYOEJKwhejpHAA9YwCFirVZCEY95atpmNi+PNDUTwkuoL4spLNXrH+SRxysoWGQrCzei4+z3Q5E/AoFdVM5q3uOuzIMZTAYLnrcC4crk6msqJTHre3AkHM=
-  file: ./CanzoniereFontanellato.pdf
+    secure: EG/uWw1KohvdVVobXWSyyUDzfc+0CKqscCqevUil0r4PVaH1600btLNYa+LdgQB+iJiPxYC3UToWm+AgpkmxVc3S/4R4zg9WZlQUk75l65Be1HhLWrF/3YjXojQz9wcKPFPJUL41CCL44D5TMBDp4+TCAZXLWCeDiqqOnoj7+heH976jjUVHJuERy4U2VxjXamQmC8SQpg2vvPVTjH2OhG0UuoiozBiVuXxRu0vobZ/vXFveGHdglexL5ynp/NLmjJ9EaVQwE6NKPbPOW0Rh8yf1vwuVAimfzxUHSV19w+c/7EGCKArolucQXk/WMLeamj74/lqwkIC4g6xAOQtZU4YFTPP/+8u+vmi1JbHOELLXJTMbpOBhb//E5fgeKiuf2oG2sdKMr+KmmsEV7ubYKhbYQv2FCyDGprrYYGlx1dFobXnk+wB8gHEGdAF+x78mHgxFWuEwdKSX/CHSlgv0+KmoWqbzWg1mg8zWXoENnQ95YzFzwI2wm55o0yaPLLiDRzwUPXcBecBCoWLVvaklIWPqfrl5FGMlh92wGoYM5vBJr6diIyrRNw7KGmQ0sGKasPogySv3q84Bf5E9A491Q565dyEdjC3SELGZszX4WqDvjpWRYSQDr3iWfb0Um8sKlywTEW6c95E5NRnxb0Tvyjlmb9I4G5YANA6rGX5VWZE=
+  file: "./CanzoniereFontanellato.pdf"
   skip_cleanup: true
-  overwrite: yes
   on:
     repo: dariomangoni/CanzoniereFontanellato
