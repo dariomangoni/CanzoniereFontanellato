@@ -21,11 +21,11 @@ script:
 - texlua ./tools/songidx.lua CanzoniereFontanellatoScoutIndex.sxd CanzoniereFontanellatoScoutIndex.sbx
 - texlua ./tools/songidx.lua CanzoniereFontanellatoVarieIndex.sxd CanzoniereFontanellatoVarieIndex.sbx
 - texliveonfly -shell-escape ./CanzoniereFontanellato.tex
-before_deploy:
-- git config --local user.name "Dario Mangoni"
-- git config --local user.email "dariomangoni@gmail.com"
-- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-- git tag $TRAVIS_TAG
+# before_deploy:
+# - git config --local user.name "Dario Mangoni"
+# - git config --local user.email "dariomangoni@gmail.com"
+# - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+# - git tag $TRAVIS_TAG
 deploy:
   provider: releases
   api_key:
@@ -34,3 +34,9 @@ deploy:
   skip_cleanup: true
   on:
     repo: dariomangoni/CanzoniereFontanellato
+notifications:
+  email:
+    recipients:
+      - dariomangoni@gmail.com
+    on_success: change
+    on_failure: always
