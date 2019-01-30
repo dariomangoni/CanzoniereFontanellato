@@ -58,7 +58,7 @@ La canzone dovrà essere formattata con i comandi appositi.
 -----------------
 ## Installazione Font (nel caso si volesse usare il font Emerald)
 
-Per utenti TexLive fare riferimoento al sito https://www.tug.org/fonts/fontinstall.html, del quale si riporta un estratto:
+Per utenti TexLive fare riferimento al sito https://www.tug.org/fonts/fontinstall.html, del quale si riporta un estratto:
 1. individuare la cartella **texmf-local** con il seguente comando:
 	```winbatch
 	kpsewhich --var-value TEXMFLOCAL
