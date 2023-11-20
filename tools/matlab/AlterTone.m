@@ -2,7 +2,7 @@ clear variables
 close all
 clc
 
-altertone = +2;
+altertone = -2;
 
 [filename, filepath] = uigetfile('*.tex','Open TEX file');
 
@@ -10,18 +10,32 @@ fid = fopen([filepath, filename], 'r');
 text = fileread([filepath, filename]);
 frewind(fid);
 
-chord_scale{1} = {'La'};
-chord_scale{2} = {'Si&', 'La#'};
-chord_scale{3} = {'Si'};
-chord_scale{4}= {'Do'};
-chord_scale{5} = {'Do#', 'Re&'};
-chord_scale{6} = {'Re'};
-chord_scale{7} = {'Mi&', 'Re#'};
-chord_scale{8} = {'Mi'};
-chord_scale{9} = {'Fa'};
-chord_scale{10} = {'Fa#' , 'Sol&'};
-chord_scale{11} = {'Sol'};
-chord_scale{12} = {'Sol#', 'La&'};
+% chord_scale{1} = {'La'};
+% chord_scale{2} = {'Si&', 'La#'};
+% chord_scale{3} = {'Si'};
+% chord_scale{4}= {'Do'};
+% chord_scale{5} = {'Do#', 'Re&'};
+% chord_scale{6} = {'Re'};
+% chord_scale{7} = {'Re#', 'Mi&'};
+% chord_scale{8} = {'Mi'};  
+% chord_scale{9} = {'Fa'};
+% chord_scale{10} = {'Fa#' , 'Sol&'};
+% chord_scale{11} = {'Sol'};
+% chord_scale{12} = {'Sol#', 'La&'};
+
+chord_scale{1} = {'A'};
+chord_scale{2} = {'B&', 'A#'};
+chord_scale{3} = {'B'};
+chord_scale{4}= {'C'};
+chord_scale{5} = {'C#', 'D&'};
+chord_scale{6} = {'D'};
+chord_scale{7} = {'D#', 'E&'};
+chord_scale{8} = {'E'};
+chord_scale{9} = {'F'};
+chord_scale{10} = {'F#' , 'G&'};
+chord_scale{11} = {'G'};
+chord_scale{12} = {'G#', 'A&'};
+
 
 captures_cell = {};
 for chord_sel = 1:length(chord_scale)
